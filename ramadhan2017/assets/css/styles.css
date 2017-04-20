@@ -1,0 +1,60 @@
+.navbar-default {
+  background-color:#3e3f3a;
+  border-color:#3e3f3a;
+}
+
+div.center-position {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:100%;
+}
+
+.flip-clock-wrapper {
+  text-align:center;
+  position:relative;
+  width:60%;
+  margin:1em;
+}
+
+.footer-basic {
+  background-color:#3e3f3a;
+  color:white;
+}
+
+.article-clean {
+  background-color:#f8f5f0;
+}
+
+body {
+  font-family:"Lusitana","Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+  background-color:#f8f5f0;
+}
+
+.navbar {
+  margin-bottom:0px;
+}
+
+.text-center {
+  text-align:center;
+  font-size:25px;
+  margin-top:25px;
+}
+
+p.center-text {
+  text-align:center;
+  font-size:25px;
+}
+
+.navbar-default .navbar-link:hover {
+  color:#fcf2f2;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color:#fff8f8;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+  color:#555;
+}
+

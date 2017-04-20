@@ -1,0 +1,28 @@
+.container {
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+.navbar-default {
+  background-color:#3e3f3a;
+  border-color:#3e3f3a;
+}
+
+.container-fluid {
+  background-color:#3e3f3a;
+}
+
+.navbar-default .navbar-link:hover {
+  color:#f7f3f3;
+}
+
+.navbar-default .navbar-nav > li > a:focus, .navbar-default .navbar-nav > li > a:hover {
+  color:#f9f8f8;
+}
+
+body {
+  font-size:21px;
+}
+
