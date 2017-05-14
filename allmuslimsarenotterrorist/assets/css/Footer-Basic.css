@@ -58,18 +58,25 @@
   margin-bottom:0;
 }
 
-div.header-image {
-  display:flex;
-  justify-content:center;
+@media (max-width:991px) {
+  img.img-responsive.jihad-img {
+    width:100%;
+  }
 }
 
-div.no-terrorism {
-  display:flex;
-  justify-content:center;
+@media (max-width:991px) {
+  img.img-responsive.jesus-img {
+    width:100%;
+  }
 }
 
-div.div-video {
-  display:flex;
-  justify-content:center;
+@media (max-width:991px) {
+  img.img-responsive.womenislam-img {
+    width:100%;
+  }
+}
+
+.img-circle.img-responsive.adjust-center {
+  max-height:400px;
 }
 
