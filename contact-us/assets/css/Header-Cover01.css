@@ -1,0 +1,106 @@
+div#cover {
+  height:100vh;
+  background-image:-webkit-linear-gradient(top, #ccc, #777);
+  background-image:-moz-linear-gradient(top, #ccc, #777);
+  background-image:-o-linear-gradient(top, #ccc, #777);
+  background-image:-ms-linear-gradient(top, #ccc, #777);
+  background-image:linear-gradient(top, #ccc, #777);
+  width:100%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-color:#000;
+  background-repeat:no-repeat;
+  background-position:center center;
+  position:relative;
+  background-attachment:fixed;
+  overflow:hidden;
+}
+
+div#cover-img {
+  height:100vh;
+  background-image:url('../../assets/img/cover01.jpg');
+  width:100%;
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position:center center;
+  text-align:center;
+  vertical-align:middle;
+  position:relative;
+  background-attachment:fixed;
+}
+
+div#cover-filter {
+  height:100vh;
+  background-image:-moz-linear-gradient(top, rgba(0,0,0,0.20), rgba(10,143,196,0.20));
+  background-image:-webkit-linear-gradient(top, rgba(0,0,0,0.20), rgba(10,143,196,0.20));
+  background-image:-o-linear-gradient(top, rgba(0,0,0,0.20), rgba(10,143,196,0.20));
+  background-image:-ms-linear-gradient(top, rgba(0,0,0,0.20), rgba(10,143,196,0.20));
+  background-image:linear-gradient(top, rgba(0,0,0,0.20), rgba(10,143,196,0.20));
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorStr='#cc000000', endColorstr='#cc0a8fc4');
+  width:100%;
+  position:absolute;
+  top:0;
+  left:0;
+}
+
+div#text-container.container {
+  position:absolute;
+  top:0;
+  left:0;
+  bottom:0;
+  right:0;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+  max-width:1200px;
+  padding:0;
+}
+
+div.valign {
+  display:table-cell;
+  height:100vh;
+  vertical-align:middle;
+}
+
+div#cover-text {
+  font-family:'Roboto', sans-serif;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+  padding:0;
+  padding-top:42px;
+  padding-bottom:42px;
+}
+
+p#cover-description.lead {
+  text-transform:uppercase;
+  color:#fff;
+  padding-bottom:60px;
+  padding-top:30px;
+}
+
+h1#cover-offer1 {
+  color:#fff;
+  padding:24px 0px 38px 0px;
+  letter-spacing:0.5px;
+  font-size:72px;
+  font-weight:600;
+  line-height:1.17;
+}
+
+small#cover-offer2 {
+  color:#fff;
+}
+
+p#cover-offer3 {
+  color:#fff;
+  padding-bottom:30px;
+  padding-top:15px;
+}
+
