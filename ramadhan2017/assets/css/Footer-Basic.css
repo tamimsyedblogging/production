@@ -1,6 +1,6 @@
 .footer-basic {
   padding:40px 0;
-  background-color:#ffffff;
+  background-color:#3e3f3a;
   color:#4b4c4d;
 }
 
@@ -56,5 +56,23 @@
   font-size:13px;
   color:#aaa;
   margin-bottom:0;
+}
+
+@media (max-width:991px) {
+  img.img-responsive.jihad-img {
+    width:100%;
+  }
+}
+
+@media (max-width:991px) {
+  img.img-responsive.jesus-img {
+    width:100%;
+  }
+}
+
+@media (max-width:991px) {
+  img.img-responsive.womenislam-img {
+    width:100%;
+  }
 }
 
