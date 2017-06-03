@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: /404
+Disallow: /assets
+Disallow: /blogging
+Disallow: /error
+Disallow: /comingsoon
+Disallow: google*.html
+Disallow: /README.md
