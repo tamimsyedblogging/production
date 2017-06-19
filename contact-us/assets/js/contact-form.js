@@ -1,6 +1,6 @@
 var URL = 'https://d5ot9ts2c4.execute-api.us-west-2.amazonaws.com/PROD'
  
-$('#contact-form').submit(function (event) {
+$('#contact-form').click(function (event) {
   event.preventDefault()
   $('#contact-form').html('Processing the form...');
   var data = {
@@ -16,15 +16,31 @@ $('#contact-form').submit(function (event) {
     contentType: 'application/json',
     data: JSON.stringify(data),
     success: function (response) {
-       $('#contact-form').html('SUBMIT');
-       $('#inputDisplayError').css('visibility','hidden');
-       $('#inputName').val('');
-       $('#inputEmail').val('');
-       $('#inputMessage').val('');
+      console.log('Success msg '+response.successMsg);
+
+      console.log('Err : '+response.errorMessage);
+      "undefined" === typeof response.successMsg
+      
+      if ("undefined" !== typeof response.successMsg)
+      { 
+         $('#contact-form').html('SUBMIT');
+         $('#inputDisplayError').html(response.successMsg);
+         $('#inputDisplaySuccess').css('display','block');
+         $('#inputDisplayError').css('display','none');
+         $('#inputName').val('');
+         $('#inputEmail').val('');
+         $('#inputMessage').val('');
+       }    
+      if ("undefined" !== typeof response.errorMessage)
+       {
+       $('#inputDisplaySuccess').css('display','none');
+       $('#inputDisplayError').css('display','block');
+         $('#inputDisplayError').html(response.errorMessage);
+          $('#contact-form').html('SUBMIT');
+       }
     },
     error: function (res) {
-      $('#inputDisplayError').css('visibility','visible');
-      $('#inputDisplayError').html(res.text);
+
     }
   })
 })

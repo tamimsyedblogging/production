@@ -25,6 +25,6 @@ label {
 }
 
 #inputDisplayError {
-  visibility:hidden;
+  display:none;
 }
 
