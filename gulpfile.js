@@ -50,7 +50,7 @@ gulp.task('sitemaphtml',['processing'],function () {
     .pipe(gulp.dest('.'));
 });
 
-gulp.task('default',['css-iterate','sitemaphtml'], function () {
+gulp.task('default',['sitemaphtml'], function () {
     for(var member of arrayHtmlFiles){
       gulp.src([member+'markup.html'])
         .pipe(fileinclude({
