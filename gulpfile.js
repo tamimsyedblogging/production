@@ -4,11 +4,12 @@ var del = require('del');
 var rename = require("gulp-rename");
 var each = require('gulp-each');
 var foreach = require('gulp-foreach');
-var minifyCss = require('gulp-minify-css');
+//var minifyCss = require('gulp-minify-css');
 var minifyHTML = require('gulp-minify-html');
+var gzip = require('gulp-gzip');
 
 const arrayHtmlFiles = [];
-const arrayCssFiles = [];
+//const arrayCssFiles = [];
 
 gulp.task('processing',['delete'],function () {
 
@@ -17,25 +18,6 @@ gulp.task('processing',['delete'],function () {
       var pathFile = file.path;
       var finalPath = pathFile.substring(0,pathFile.lastIndexOf("/")+1);
       arrayHtmlFiles.push(finalPath);
-    //  console.log("finalPath >> "+finalPath+" >> length "+arrayHtmlFiles.length);
-      gulp.src(['/Applications/MAMP/htdocs/thetruthengineland/**/markup.html'])
-        .pipe(fileinclude({
-          prefix: '@@',
-          basepath: '/Applications/MAMP/htdocs/thetruthengineland/production'
-        }))
-        .pipe(rename("index.html"));
-      return stream
-    }))
-});
-
-gulp.task('css',function () {
-
-  return gulp.src('./**/*.css')
-    .pipe(foreach(function(stream, file){
-      var pathFile = file.path;
-      var finalPath = pathFile.substring(0,pathFile.lastIndexOf("/")+1);
-      if (!(pathFile.indexOf("node_modules")>=0))
-        arrayCssFiles.push(finalPath);
       return stream
     }))
 });
@@ -46,6 +28,7 @@ gulp.task('sitemaphtml',['processing'],function () {
       prefix: '@@',
       basepath: '/Applications/MAMP/htdocs/thetruthengineland/production/'
     }))
+    .pipe(gzip({gzipOptions:{level:9}}))
     .pipe(rename("sitemap.html"))
     .pipe(gulp.dest('.'));
 });
@@ -58,15 +41,8 @@ gulp.task('default',['sitemaphtml'], function () {
           basepath: '/Applications/MAMP/htdocs/thetruthengineland/production/'
         }))
         .pipe(minifyHTML({ conditionals: true, spare:true}))
+        .pipe(gzip({gzipOptions:{level:9}}))
         .pipe(rename("index.html"))
-        .pipe(gulp.dest(member));
-    }
-});
-
-gulp.task('css-iterate',['css'], function () {
-    for(var member of arrayCssFiles){
-      gulp.src(member+"/*.css")
-        .pipe(minifyCss({compatibility: 'ie8'}))
         .pipe(gulp.dest(member));
     }
 });
@@ -74,8 +50,44 @@ gulp.task('css-iterate',['css'], function () {
 gulp.task('delete', function () {
   return del([
     './**/index.html',
+    './**/*.gz',
+    './**/*.js.html',
+    './**/*.js.sample',
+    './**/*.css.html',
+    './**/markup.html.sample',
+    './**/*.css.sample',
     './sitemap.html',
     '!./common/header/index.html',
     '!./common/footer/index.html'
   ]);
+});
+
+const arrayGzipFiles = [];
+gulp.task('gzip-iterate', function() {
+  return gulp.src('./**/*.{js,css}')
+    .pipe(foreach(function(stream, file){
+      var pathFile = file.path;
+      if (!(pathFile.indexOf("node_modules")>=0) && !(pathFile.indexOf("index.html")>=0) && !(pathFile.indexOf("gulpfile.js")>=0) && !(pathFile.indexOf("google")>=0))
+        arrayGzipFiles.push(pathFile);
+      return stream
+    }))
+});
+
+gulp.task('gzip',['gzip-iterate'], function () {
+    for(var member of arrayGzipFiles){
+      var finalPath = member.substring(0,member.lastIndexOf("/")+1);
+      gulp.src(member)
+        .pipe(gzip({gzipOptions:{level:9}})).pipe(rename(function (path) {
+            if (path.basename == 'markup.html')
+            {
+              path.basename ="index";
+              path.extname= ".html";
+            }
+            else if (path.basename == 'sitemapmarkup.html')
+            {
+              path.basename ="sitemap";
+              path.extname= ".html";
+            }
+          })).pipe(gulp.dest(finalPath));
+    }
 });
