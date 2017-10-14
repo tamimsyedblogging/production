@@ -1,0 +1,41 @@
+
+    <div class="blog-content">
+{% for blog in blogs %}
+    {% if blog.isThisBlogEntry %}
+<div class="row">
+  <div class="col-md-12">
+      <article>
+          <header>
+              <h2>{{blog.title}}</h2>
+              <div><span> <i class="glyphicon glyphicon-calendar padding-icon"></i></span><span class="span-seperator-right">{{blog.date}}</span><i class="glyphicon glyphicon-pencil padding-icon"></i><span>{{blog.author}}</span></div>
+          </header>
+          <hr class="overwrite-bg-hr-color">
+      </article>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+      <div class="thumbnail"><a href="{{blog.sitelocation}}" target="_blank"><img src="{{blog.imageurl}}" alt="{{blog.title}}"></a>
+      </div>
+  </div>
+  <div class="col-md-8">
+      <div class="row">
+          <div class="col-md-12">
+              <div>
+                  <p>{{blog.description}}</p>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3 col-md-offset-9">
+              <div><a class="btn btn-default active" role="button" href="{{blog.sitelocation}}">Learn More..</a></div>
+          </div>
+      </div>
+  </div>
+  <div class="col-md-12">
+      <hr>
+  </div>
+</div>
+    {% endif %}
+{% endfor %}
+</div>

@@ -1,0 +1,14 @@
+
+    {% for blog in blogs %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="thumbnail">
+          <div class="caption">
+            <a href="{{blog.sitelocation}}">
+                <h3>{{blog.title}}</h3>
+            </a>
+          </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

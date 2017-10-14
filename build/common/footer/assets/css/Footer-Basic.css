@@ -76,3 +76,21 @@
   }
 }
 
+.glyphicon.glyphicon-star.start-padding {
+  padding-right:20px;
+}
+
+.alert-info {
+  background-color:#3e3f3a;
+  border-color:transparent;
+  color:#ffffff;
+}
+
+.svg-icon-class {
+  max-height:25px;
+}
+
+svg .svg-icon-star > g {
+  border:2px solid red;
+}
+
